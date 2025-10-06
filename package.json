@@ -1,5 +1,5 @@
 {
-	"name": "@flexreasonability/mini-code-editor",
+	"name": "@flexreasonability/light-code-editor",
 	"version": "0.1.0",
 	"type": "module",
 	"main": "dist/index.cjs",
@@ -11,15 +11,15 @@
 			"import": "./dist/index.js",
 			"require": "./dist/index.cjs"
 		},
-		"./languages/*": {
-			"types": "./dist/languages/*.d.ts",
-			"import": "./dist/languages/*.js",
-			"require": "./dist/languages/*.cjs"
+		"./languages": {
+			"types": "./dist/languages/index.d.ts",
+			"import": "./dist/languages/index.js",
+			"require": "./dist/languages/index.cjs"
 		},
-		"./themes/*": {
-			"types": "./dist/themes/*.d.ts",
-			"import": "./dist/themes/*.js",
-			"require": "./dist/themes/*.cjs"
+		"./themes": {
+			"types": "./dist/themes/index.d.ts",
+			"import": "./dist/themes/index.js",
+			"require": "./dist/themes/index.cjs"
 		},
 		"./styles.css": "./styles/index.css"
 	},
@@ -44,5 +44,9 @@
 		"@types/react-dom": "^18.3.0",
 		"tsup": "^8.2.4",
 		"typescript": "^5.6.3"
-	}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"prepublishOnly": "npm run build"
 }
