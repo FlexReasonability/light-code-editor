@@ -1,0 +1,48 @@
+{
+	"name": "@flexreasonability/mini-code-editor",
+	"version": "0.1.0",
+	"type": "module",
+	"main": "dist/index.cjs",
+	"module": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js",
+			"require": "./dist/index.cjs"
+		},
+		"./languages/*": {
+			"types": "./dist/languages/*.d.ts",
+			"import": "./dist/languages/*.js",
+			"require": "./dist/languages/*.cjs"
+		},
+		"./themes/*": {
+			"types": "./dist/themes/*.d.ts",
+			"import": "./dist/themes/*.js",
+			"require": "./dist/themes/*.cjs"
+		},
+		"./styles.css": "./styles/index.css"
+	},
+	"files": [
+		"dist",
+		"styles"
+	],
+	"sideEffects": [
+		"./styles/index.css"
+	],
+	"scripts": {
+		"build": "tsup src/index.ts src/languages/*.ts src/themes/*.ts --format esm,cjs --dts --sourcemap",
+		"dev": "tsup src/index.ts src/languages/*.ts src/themes/*.ts --format esm --dts --sourcemap --watch",
+		"typecheck": "tsc --noEmit"
+	},
+	"peerDependencies": {
+		"react": ">=17",
+		"react-dom": ">=17"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.5",
+		"@types/react-dom": "^18.3.0",
+		"tsup": "^8.2.4",
+		"typescript": "^5.6.3"
+	}
+}

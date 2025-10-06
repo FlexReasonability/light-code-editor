@@ -1,0 +1,44 @@
+/* conteneur */
+.mini-editor {
+  position: relative;
+  font: 14px/1.6 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --editor-bg: #0b0f14;
+  --editor-fg: #d2d6db;
+  --editor-caret: #7dd3fc;
+}
+
+/* calque highlight */
+.mini-editor__code {
+  margin: 0;
+  white-space: pre;
+  tab-size: 2;
+  padding: 12px;
+  background: var(--editor-bg);
+  color: var(--editor-fg);
+  pointer-events: none;           /* évite toute interaction */
+}
+
+/* calque édition (au-dessus) */
+.mini-editor__input {
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  border: 0;
+  outline: none;
+  resize: none;
+  background: transparent;
+  z-index: 1;
+
+  /* texte invisible mais caret visible */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Safari */
+  caret-color: var(--editor-caret);
+
+  font: inherit;
+  line-height: inherit;
+  white-space: pre;  /* garde les \n et espaces comme <pre> */
+  tab-size: 2;
+}
+
+/* placeholder affiché côté <pre> quand pas de code */
+.placeholder { opacity: .5; }
